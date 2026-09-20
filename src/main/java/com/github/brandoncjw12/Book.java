@@ -1,9 +1,10 @@
-package java;
+package com.github.brandoncjw12;
 import java.util.Map;
+import java.util.HashMap;
 
 public class Book{
-    private static Map<Integer, String> bookIdToAuthor;
-    private static Map<Integer, String> bookIdToName;
+    private static Map<Integer, String> bookIdToAuthor = new HashMap<>();
+    private static Map<Integer, String> bookIdToName = new HashMap<>();
 
     String name;
     String author;
@@ -20,15 +21,19 @@ public class Book{
         bookIdToName.put(this.uniqueId, this.name);
     }
 
-    public static String getBookName(Integer bookId) {
+    public static String getBookName(int bookId) {
         return bookIdToName.getOrDefault(bookId, "");
     }
 
-    public static String getBookAuthor(Integer bookId) {
+    public static String getBookAuthor(int bookId) {
         return bookIdToAuthor.getOrDefault(bookId, "");
     }
 
-    public Integer getId() {
+    public int getId() {
         return this.uniqueId;
+    }
+
+    public static Book makeBook(String name, String author, int bookId) {
+        return new Book(name, author, bookId);
     }
 }

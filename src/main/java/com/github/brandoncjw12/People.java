@@ -1,4 +1,4 @@
-package java;
+package com.github.brandoncjw12;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -63,5 +63,9 @@ public class People {
             }
         }
         return currentBestAuthor;
+    }
+
+    public static People makePerson(String username) {
+        return new People(username);
     }
 }
